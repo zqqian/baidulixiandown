@@ -1,0 +1,13 @@
+@charset "utf-8";
+html *{margin:0;padding:0;font-family:Microsoft Yahei;font-size14px;}
+body{text-align:center;background:#f1f1f1;}
+a{color:#999;font-size:12px;}
+
+/* login */
+.login{margin:0 auto;margin-top:100px;width:530px;height:150px;text-align:left;border:solid #ccc 1px;padding:10px 0;background:#fff;border-radius:5px;box-shadow:2px 2px 2px #ccc;}
+.login label{display:block;padding:0 20px;text-transform:capitalize;height22px;line-height:22px;margin-top:10px;position:relative;}
+.login label a{position:absolute;right:15px;top:10px;}
+.login input{margin-left:15px;width:500px;height:30px;border:solid #ccc 1px;border-radius:50px;margin-top:2px;}
+.login span{width:95%;margin:20px auto;height:1px;overflow:hidden;background:#ccc;display:block;}
+.login input[type=submit]{width:100px;height:30px;line-height:30px;float:right;border-radius:15px;margin-right:20px;border:solid #7dcdf2 1px;font-size:16px;background:linear-gradient(#b9ddf3,#7dcdf2);box-shadow:2px 2px 2px #7dcdf2;color:#fff;cursor:position;*background:#b9ddf3;background:#b9ddf3\0;}
+.login input[type=submit]:active{position:relative;left:1px;top:1px;color:red;}
