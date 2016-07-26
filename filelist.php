@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 header("Content-Type:text/html; charset=utf-8"); date_default_timezone_set("Asia/Taipei");
 require_once dirname(__FILE__) .'/config.php';
 function url_b64decode($string) {
@@ -40,8 +40,8 @@ if(is_array($_GET)&&count($_GET)>0){
 
 	$data2=getHTTPS("https://openapi.baidu.com/rest/2.0/passport/users/getLoggedInUser?access_token={$access_token}");	
 	$arrdata=json_decode($data2,ture);
-	var_dump($arrdata);
-		
+	//var_dump($arrdata);
+	$img="http://tb.himg.baidu.com/sys/portraitn/item/{$arrdata["portrait"]}";	
 		
 		
 		
@@ -74,10 +74,11 @@ if(is_array($_GET)&&count($_GET)>0){
 </head>
 <body>
 <div class="navbar"><div class="navbar-inner"><div class="container"><ul class="nav">
-<li><a href="http://www.loveno.net/">星光天文</a></li>
+<li class="navbar"><img src="<?php echo $img;?>"  alt="头像"  height="37" width="37"/></li>
+<li class="navbar"><a href="adddown.html"><?php echo $arrdata["uname"];?></a></li>
 <li class="active"><a href="index.php">离线下载列表</a></li>
 <li class="navbar"><a href="adddown.html">添加资源</a></li>
-<li class="navbar"><?php echo $arrdata["uname"];?></a></li>
+
 
 
 </ul></div></div></div>
