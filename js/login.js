@@ -1,4 +1,4 @@
-// JavaScript Document
+﻿// JavaScript Document
 //支持Enter键登录
 		document.onkeydown = function(e){
 			if($(".bac").length==0)
@@ -17,7 +17,7 @@
 				show_loading();
 				
 					//ajax提交表单，#login_form为表单的ID。 如：$('#login_form').ajaxSubmit(function(data) { ... });
-			   show_msg('正在为您跳转...','https://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=eX8gsZ87Ycwcq4bSsjEWQaHE&redirect_uri=http://127.0.0.1/baidulixiandown/getkey.php?');	
+			   show_msg('正在为您跳转...','https://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=eX8gsZ87Ycwcq4bSsjEWQaHE&redirect_uri=http://www.loveno.net/baiduyun/getkey.php&scope=basic,super_msg,netdisk');	
 			    
 				
 			});

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(0);
 header("Content-Type:text/html; charset=utf-8"); date_default_timezone_set("Asia/Taipei");
 require_once dirname(__FILE__) .'/config.php';
@@ -36,6 +36,7 @@ if(is_array($_GET)&&count($_GET)>0){
 		$limit = '0-1000';
 		$pcs = new BaiduPCS($access_token);
 		$result = $pcs->listFiles($path, $by, $order, $limit);
+		
 //echo $result;
 
 	$data2=getHTTPS("https://openapi.baidu.com/rest/2.0/passport/users/getLoggedInUser?access_token={$access_token}");	
@@ -43,10 +44,13 @@ if(is_array($_GET)&&count($_GET)>0){
 	//var_dump($arrdata);
 	$img="http://tb.himg.baidu.com/sys/portraitn/item/{$arrdata["portrait"]}";	
 		
-		
-		
+		//获取容量信息
+		$quota=json_decode($pcs->getQuota(),ture);
+		$total=round($quota["quota"]/1073741824,2);
+		$used=round($quota["used"]/1073741824,2);
 		
 		}
+		
 	
 }
 
@@ -70,20 +74,22 @@ if(is_array($_GET)&&count($_GET)>0){
 <meta name="robots,Baiduspider" content="noindex,noarchive,nofollow">
 <link rel="stylesheet" href="css/style.css" />
 <link rel="canonical" href="http://<?php echo $sitehost ?>/file/" />  
-<title>下载列表- <?php echo $sitehost; ?></title>
+<title>文件列表- 百度云快速下<?php echo $sitehost; ?></title>
 </head>
 <body>
 <div class="navbar"><div class="navbar-inner"><div class="container"><ul class="nav">
 <li class="navbar"><img src="<?php echo $img;?>"  alt="头像"  height="37" width="37"/></li>
 <li class="navbar"><a href="adddown.html"><?php echo $arrdata["uname"];?></a></li>
-<li class="active"><a href="index.php">离线下载列表</a></li>
-<li class="navbar"><a href="adddown.html">添加资源</a></li>
+<li class="active"><a href="index.php">网盘文件列表</a></li>
+<li class="navbar"><a href="lixian.php?<?php echo "key={$_GET["key"]}";?>">离线下载</a></li>
 
 
 
 </ul></div></div></div>
 <div class="container"><div class="hero-unit">
-<h3>BY PCS</h3>
+<h3><?php echo "{$arrdata["uname"]}的百度网盘容量：$total G已使用$used G" ; ?></h3>
+
+<h3>请将要快速下载的文件放入 百度网盘\我的应用数据\zqqian123\ 目录下。</h3>
 <?php
 header("content-Type: text/html; charset=utf-8"); //����ǿ��
 header("Content-Type: text/html;charset=utf-8"); 

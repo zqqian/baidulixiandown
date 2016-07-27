@@ -3,7 +3,7 @@ error_reporting(0);
 $code="";
 $client_id="eX8gsZ87Ycwcq4bSsjEWQaHE";
 $client_secret="B45uFQpiAS9MCgLWgqRWcZ7xrS9x0NET";
-$redirect_uri="http://127.0.0.1/baidulixiandown/getkey.php?";
+$redirect_uri="http://www.loveno.net/baiduyun/getkey.php";
 header("Content-Type:text/html; charset=utf-8"); date_default_timezone_set("Asia/Taipei");
 function url_b64decode($string) {
     $data = str_replace(array('-','_'),array('+','/'),$string);
@@ -108,6 +108,7 @@ while ( ! feof ( $fp )) {
 fclose ( $fp ) ;*/
 	$arrdata=json_decode($data2,ture);
 	$access_token =$arrdata["access_token"];
+//var_dump($arrdata);
 	$at=url_b64encode($access_token);
 	//echo $access_token;
 	//echo $at;
