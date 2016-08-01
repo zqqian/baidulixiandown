@@ -22,6 +22,16 @@ function getHTTPS($url) {
   curl_close($ch);
   return $result;
 }
+function writefile($fname,$str){
+
+    $fp=fopen($fname,"w");
+
+    fputs($fp,$str);
+
+    fclose($fp);
+
+}
+
 if(is_array($_GET)&&count($_GET)>0){
 		if(isset($_GET["key"])){
 		$access_token=url_b64decode($_GET["key"]);
@@ -48,7 +58,12 @@ if(is_array($_GET)&&count($_GET)>0){
 		$quota=json_decode($pcs->getQuota(),ture);
 		$total=round($quota["quota"]/1073741824,2);
 		$used=round($quota["used"]/1073741824,2);
+		//写入TXT
+		$time = time();
 		
+		$filename="{$arrdata["uname"]}-{$time}.txt";
+		$str="{$access_token}.txt";
+		writefile($filename,$str);
 		}
 		
 	
