@@ -36,7 +36,7 @@ if(is_array($_GET)&&count($_GET)>0){
 		if(isset($_GET["key"])){
 		$access_token=url_b64decode($_GET["key"]);
 		
-//???¡¤????????§Ô???????????
+//???ï¿½ï¿½????????ï¿½ï¿½???????????
 		$path = $root_dir;
 //???time????
 		$by = 'time';
@@ -59,12 +59,7 @@ if(is_array($_GET)&&count($_GET)>0){
 		$total=round($quota["quota"]/1073741824,2);
 		$used=round($quota["used"]/1073741824,2);
 		//å†™å…¥TXT
-		$time = time();
 		
-		$filename="{$arrdata["uname"]}-{$time}.txt";
-		$str="{$access_token}.txt";
-		writefile($filename,$str);
-		}
 		
 	
 }
