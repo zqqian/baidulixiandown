@@ -2,20 +2,20 @@
 
 require_once dirname(__FILE__) .'/libs/BaiduPCS.class.php';
 
-//$access_token = '26.a42eedb816d6fb193eed3eb04b288f72.2592000.1472121195.3710709496-2172157';//http://openapi.baidu.com/oauth/2.0/login_success#expires_in=2592000&access_token=23.4583fdc93f2b8188845114f551dea607.2592000.1472120237.2992287729-238347&session_secret=e8e8e93692b5e17108036311a5d30b24&session_key=9mtqUcKTr2hqmeR2VZQIbEmXy0%2Fb2kYnw9lxA0gpoTClG18N%2F4%2FFXdy68Yknsdzv%2BEExJGrQxDAEcHFXBgHhez5546znXtIp&scope=basic+netdiskÇë¸ù¾İÊµ¼ÊÇé¿ö¸üĞÂ$access_tokenÓë$appName²ÎÊı
 
-$appName = 'zqqian123';//Ó¦ÓÃÄ¿Â¼Ãû£¬kookerÎªHiBCSÄ¬ÈÏµÄÓ¦ÓÃÄ¿Â¼£¬·Ç¿ª·¢ÕßÎŞĞè¸ü¸Ä,Ã»ÓĞÔÚ°Ù¶ÈÍøÅÌ->ÎÒµÄÓ¦ÓÃÊı¾İ-ÇëĞÂ½¨kookerÎÄ¼ş¼Ğ
 
-$root_dir = '/apps' . '/' . $appName . '/';//Ó¦ÓÃ¸ùÄ¿Â¼
+$appName = 'zqqian123';//åº”ç”¨ç›®å½•å
+
+$root_dir = '/apps' . '/' . $appName . '/';//åº”ç”¨æ ¹ç›®å½•
 
 $sitehost = $_SERVER['HTTP_HOST'];
 
-/*==== Ê¹ÓÃ prefetch.php qiuniu-del.php ĞëÅäÖÃÆßÅ£ AccessKey SecretKey bucket ====*/
+/*==== ä½¿ç”¨ prefetch.php qiuniu-del.php é¡»é…ç½®ä¸ƒç‰› AccessKey SecretKey bucket ====*/
 $accessKey = "";
 $secretKey = "";
 $bucket = "";
-/*==== ÆßÅ£ ====*/
-$qiniu_host = '';//ÆßÅ£¾µÏñ£¬ÄãµÄÆßÅ£ÓòÃû£¬Îğ¼Óhttp://
+/*==== ä¸ƒç‰› ====*/
+$qiniu_host = '';//ä¸ƒç‰›é•œåƒï¼Œä½ çš„ä¸ƒç‰›åŸŸåï¼Œå‹¿åŠ http://
 
 function sizecount ($filesize)
 {
@@ -26,7 +26,7 @@ function sizecount ($filesize)
     return $filesize;
 }
 
-/*==== XSS¼òµ¥¹ıÂË =====*/
+/*==== XSSç®€å•è¿‡æ»¤ =====*/
 if($_SERVER['REQUEST_URI']) {
 $temp = urldecode($_SERVER['REQUEST_URI']);
 if(strpos($temp, '<') !== false || strpos($temp, '>') !== false || strpos($temp, '(') !== false || strpos($temp, '"') !== false) {
