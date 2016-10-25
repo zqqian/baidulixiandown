@@ -1,9 +1,10 @@
 <?php
 error_reporting(0);
-$code="";
-$client_id="eX8gsZ87Ycwcq4bSsjEWQaHE";
-$client_secret="B45uFQpiAS9MCgLWgqRWcZ7xrS9x0NET";
-$redirect_uri="http://www.loveno.net/baiduyun/getkey.php";
+
+$client_id="";
+$client_secret="";
+$redirect_uri="";
+$code="";//è¿™ä¸ªä¸ç”¨å¡«
 header("Content-Type:text/html; charset=utf-8"); date_default_timezone_set("Asia/Taipei");
 function url_b64decode($string) {
     $data = str_replace(array('-','_'),array('+','/'),$string);
@@ -63,9 +64,9 @@ function http_request($url,$timeout=30,$header=array()){
 require_once dirname(__FILE__) .'/config.php';
 
 
-if(is_array($_GET)&&count($_GET)>0)//ÏÈÅĞ¶ÏÊÇ·ñÍ¨¹ıget´«ÖµÁË
+if(is_array($_GET)&&count($_GET)>0)//å…ˆåˆ¤æ–­æ˜¯å¦é€šè¿‡getä¼ å€¼äº†
 {
-	if(isset($_GET["code"]))//ÊÇ·ñ´æÔÚ"code"µÄ²ÎÊı3d4fba5e4ef08a11d60ccf1bc9fc217f
+	if(isset($_GET["code"]))//æ˜¯å¦å­˜åœ¨"code"çš„å‚æ•°3d4fba5e4ef08a11d60ccf1bc9fc217f
 	{
 		//https://openapi.baidu.com/oauth/2.0/token?grant_type=authorization_code&code=ANXxSNjwQDugOnqeikRMu2bKaXCdlLxn&client_id=Va5yQRHlA4Fq4eR3LT0vuXV4&client_secret=0rDSjzQ20XUj5itV7WRtznPQSzr5pVw2&redirect_uri=http://127.0.0.1/baidulixiandown/getkey.php?token
 	$code=$_GET["code"];
