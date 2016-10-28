@@ -71,10 +71,19 @@ if(is_array($_GET)&&count($_GET)>0){
 		$quota=json_decode($pcs->getQuota(),ture);
 		$total=round($quota["quota"]/1073741824,2);
 		$used=round($quota["used"]/1073741824,2);
-		
+		if($total==0){
+			$ecode=0;
+			$err="somethings wrong,please try again";		}else{
+				$ecode=1;
+				$err="login success";
+				
+			}
 		}
 		
 	
+}else{
+	$ecode=0;
+	$err="somethings worong,please try again";
 }
 
 
@@ -114,6 +123,7 @@ if(is_array($_GET)&&count($_GET)>0){
 
 <h3>请将要快速下载的文件放入 百度网盘\我的应用数据\zqqian123\ 目录下。</h3>
 <h3>强烈建议配合迅雷，IDM，aria2等多线程下载工具使用。</h3>
+
 <?php
 header("content-Type: text/html; charset=utf-8"); //����ǿ��
 header("Content-Type: text/html;charset=utf-8"); 
@@ -139,6 +149,12 @@ echo '<table class="table"><tr>';
 echo '<td>操作</td><td>文件名</td><td>文件大小</td><td>最后修改时间</td></tr>';
 $data = json_decode($result);
 $n=1;
+if($ecode==0){
+	
+echo "<h1>".$err."</h1>";
+	
+}else{
+	
 
 foreach ($data->list as $list)
 {
@@ -224,7 +240,7 @@ echo '</tr>';
 }
 
 echo '</table>';
-
+}
 
 ?>
 
