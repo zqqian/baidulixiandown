@@ -6,7 +6,7 @@ require_once dirname(__FILE__) .'/libs/BaiduPCS.class.php';
 
 $appName = 'zqqian123';//应用目录名
 
-$root_dir = '/apps' . '/' . $appName . '/';//应用根目录
+$root_dir = '/apps' . '/' . $appName . '/';//应用根目录，不要修改
 
 $sitehost = $_SERVER['HTTP_HOST'];
 
